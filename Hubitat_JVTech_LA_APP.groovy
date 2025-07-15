@@ -1,8 +1,8 @@
 /**
  *  Hubitat - JVTech Sensor Pulsador APP
  *  
- *  Driver para utilizar com o Leitor LA de Pulso JVTECH: https://jvtech.gitbook.io/produtos-la-jvtech/produtos/leitor-la-de-pulso-jvtech
- *  
+ *  APP para utilizar com o Leitor LA de Pulso JVTECH: https://jvtech.gitbook.io/produtos-la-jvtech/produtos/leitor-la-de-pulso-jvtech
+ *  Precisa também do DRIVER. 
  *  Features:
  *  - Endpoint 
  *  - Allows multiple JVTech Sensors contador from pulsos
