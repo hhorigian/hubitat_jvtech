@@ -1,6 +1,8 @@
 # hubitat_jvtech
 Driver para integrar com o Leitor LA de Pulso JVTECH.
 
+Link do produto: https://jvtech.gitbook.io/produtos-la-jvtech/produtos/leitor-la-de-pulso-jvtech
+
 
 1. Precisa instalar o Driver.
 2. Precisa instalar o APP. No hora de adicionar o código do app na Hubitat, é necessário habilitar o OAuth.
