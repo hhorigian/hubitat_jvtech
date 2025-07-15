@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Data POST Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #response {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-height: 50px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>POST JSON Data to Endpoint</h1>
+    
+    <form id="dataForm" action="http://192.168.1.197/apps/api/641/pulse/data?access_token=10276891-23be-4014-aeed-d9623ccf3c12" 
+          method="post" target="hiddenFrame">
+        <input type="hidden" name="json_data" id="jsonData">
+        
+        <div class="form-group">
+            <label for="serialNumber">SERIAL_NUMBER:</label>
+            <input type="text" id="serialNumber" value="JV003LIPU000004">
+        </div>
+        
+        <div class="form-group">
+            <label for="pulse1">pulse1:</label>
+            <input type="text" id="pulse1" value="12">
+        </div>
+        
+        <div class="form-group">
+            <label for="pulse2">pulse2:</label>
+            <input type="text" id="pulse2" value="0">
+        </div>
+        
+        <div class="form-group">
+            <label for="pulse3">pulse3:</label>
+            <input type="text" id="pulse3" value="0">
+        </div>
+        
+        <div class="form-group">
+            <label for="pulse4">pulse4:</label>
+            <input type="text" id="pulse4" value="0">
+        </div>
+        
+        <button type="submit">POST Data</button>
+    </form>
+    
+    <iframe name="hiddenFrame" class="hidden"></iframe>
+    
+    <h2>Response:</h2>
+    <div id="response">Submit the form to see response</div>
+    
+    <script>
+        document.getElementById('dataForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const data = {
+                SERIAL_NUMBER: document.getElementById('serialNumber').value,
+                pulse1: document.getElementById('pulse1').value,
+                pulse2: document.getElementById('pulse2').value,
+                pulse3: document.getElementById('pulse3').value,
+                pulse4: document.getElementById('pulse4').value
+            };
+            
+            document.getElementById('jsonData').value = JSON.stringify(data);
+            
+            // Submit the form to the hidden iframe
+            this.submit();
+            
+            // Note: For a more complete solution, you would need the server to return HTML with a script
+            // that calls a function in the parent window to display the response.
+            // This is just a basic example to avoid CORS.
+            
+            document.getElementById('response').innerHTML = "Data submitted (check network tab for response)";
+        });
+    </script>
+</body>
+</html>
